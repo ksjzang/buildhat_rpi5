@@ -8,13 +8,18 @@ screen = pygame.display.set_mode((200,200))     #window size
 screen.fill((0, 0, 0))                          #fill the screen with black
 
 #set motors
-robot = MotorPair('A','B')
+lm = Motor('A')
+rm = Motor('B')
+lm.off()
+rm.off()
 
 def drive(speedl,speedr):
-    robot.start(speedl,speedr)
+    lm.pwm(speedl*(-0.01))
+    rm.pwm(speedr*(0.01))
 
 def stop():
-    robot.stop()
+    rm.stop()
+    lm.stop()
 
 def motor_control(key):                         #key값에 따라 모터 동작
     if key == 'No Input':
