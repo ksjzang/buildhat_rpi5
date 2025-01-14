@@ -5,25 +5,30 @@ import time
 from buildhat import *
 
 #set motors
-robot = MotorPair('A','B')
+lm = Motor('A')
+rm = Motor('B')
+lm.off()
+rm.off()
 
 def drive(speedl,speedr):
-    robot.start(speedl,speedr)
+    lm.pwm(speedl*(-0.01))
+    rm.pwm(speedr*(0.01))
 
 def stop():
-    robot.stop()
+    rm.stop()
+    lm.stop()
 
 def motor_control(key):                         #key값에 따라 모터 동작
     if key == 'No Input':
         stop()
     if key == 'f':
-        drive(22,20)
+        drive(20,20)
     if key == 'r':
-        drive(25,0)
+        drive(20,0)
     if key == 'b':
         drive(-20,-20)
     if key == 'l':
-        drive(0,25)
+        drive(0,20)
 
 def motor_control(key):                         #key값에 따라 모터 동작
     if key == 'No Input':
