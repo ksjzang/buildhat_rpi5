@@ -34,7 +34,7 @@ try:
 
         # 이진화 및 경로 결정
         black, gray = make_black(image)
-        faces=signal(image,'./cascade.xml')
+        faces=signal(image,'./face.xml')
         if faces is ():
             cv2.putText(image, "no stop", (20, 20), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0))
         else:
