@@ -10,7 +10,7 @@ def make_black(image, threshold = 140):
 def signal(image, path): #cascade
     signal_cascade = cv2.CascadeClassifier(path)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    faces = signal_cascade.detectMultiScale(gray, 1.3,5, minSize=(35,35))
+    faces = signal_cascade.detectMultiScale(gray, 1.15,5)
     return faces
 
 # Picamera2 초기화
