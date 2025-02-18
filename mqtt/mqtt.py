@@ -3,10 +3,10 @@ import json
 import time
 
 # MQTT 설정
-broker = "192.168.137.253"  # MQTT 브로커 IP
+broker = "broker.hivemq.com"  # MQTT 브로커 IP
 port = 1883                 # 기본 포트
-topic = "handson"
-client_id = 'raspi'
+topic = "KNU"
+client_id = 'team05'
 
 # MQTT 클라이언트 생성
 client = mqtt.Client(client_id)
@@ -56,10 +56,8 @@ try:
         message = [client_id, 'wind', "R"]  # 메시지 데이터
         publish_message(topic, message)
         counter += 1
-        time.sleep(5)  # 5초 간격으로 발행
-        if recv_message[1]=='D':
-            print('Received message D!!')
-            break
+        time.sleep(5)
+
 except KeyboardInterrupt:
     print("Publisher stopped.")
     client.loop_stop()  # 네트워크 루프 중지
