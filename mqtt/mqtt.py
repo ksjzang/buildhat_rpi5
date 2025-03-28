@@ -5,7 +5,7 @@ import time
 # MQTT 설정
 broker = "broker.hivemq.com"  # MQTT 브로커 IP
 port = 1883                 # 기본 포트
-topic = "KNU"
+topic = "GHU"
 client_id = 'team05'
 
 # MQTT 클라이언트 생성
