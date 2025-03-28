@@ -10,7 +10,7 @@ def make_black(image, threshold = 140):
 def signal(image, path): #cascade
     signal_cascade = cv2.CascadeClassifier(path)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    faces = signal_cascade.detectMultiScale(gray, 1.15,5)
+    faces = signal_cascade.detectMultiScale(gray, 1.3,5, minSize=(35,35))
     return faces
 
 # Picamera2 초기화
@@ -34,7 +34,7 @@ try:
 
         # 이진화 및 경로 결정
         black, gray = make_black(image)
-        faces=signal(image,'./face.xml')
+        faces=signal(image,'./cascade.xml')
         if faces is ():
             cv2.putText(image, "no stop", (20, 20), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0))
         else:
